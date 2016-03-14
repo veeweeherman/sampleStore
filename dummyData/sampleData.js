@@ -14,8 +14,7 @@ module.exports.data = [
       "price" : -1,
       "status" : "removed",
       "createdAt" : ISODate("2014-08-25T19:31:50.180Z")
-  }
-  ,
+  },
   {
       "id" : "53fb8f81456e74467b000002",
       "loc" : [

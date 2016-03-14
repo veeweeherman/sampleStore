@@ -105,7 +105,17 @@ router.route('/items/:userId')
     res.json(itemsByUserId);
   })
 
-
+// DISPLAY SINGLE ITEM BY ITS ID
+router.route('/item/:id')
+  .get(function(req, res){
+    console.log('WTF!!!!!!!!!!!!!!!!', req.params.id);
+    var itemById = _.find(Data, function(item){
+      if (item.id === req.params.id){
+        return item;
+      }
+    })
+    res.json(itemById);
+  })
 
 
 app.use('/api', router);
