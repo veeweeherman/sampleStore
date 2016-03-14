@@ -91,7 +91,19 @@ router.route('/priceDesc')
 
 // DISPLAY ITEM BY USER ID
 
-router.route('/:userid')
+router.route('/items/:userId')
+  .get(function(req, res){
+    console.log('WTF!!!!!!!!!!!!!!!!', req.params.userId);
+    // iterate thru list
+    // if the item in the list passes the preicate, pass into the new array
+    // return new array
+    var itemsByUserId = _.filter(Data, function(value, index, list){
+      if (value.userId === req.params.userId){
+        return value;
+      }
+    })
+    res.json(itemsByUserId);
+  })
 
 
 
