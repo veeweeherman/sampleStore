@@ -24,43 +24,18 @@ router.get('/', function(req,res){
   res.json({ message: 'API is up and running, oi oi oi!!'})
 });
 
-// TEST ROUTE
-router.route('/test')
-  .get(function(req, res){
-    var foo = [{name: 'moe', age: 10}, {name: 'larry', age: 50}, {name: 'curly', age: 6}, {name: 'zed', age: 1}];
-    // var baz = _.sortBy(foo, 'age');
-
-    //  works the same as:
-
-    // var baz = _.sortBy(foo, function(prop){
-    //   if (prop.age){
-    //     return prop.age;
-    //     // return prop.age * -1 //--> to return in descending order for numbers
-    //   }
-    // })
-
-    var baz = _.sortBy(foo, function(prop){
-      if (prop.name){
-        return prop.name;
-        // return prop.name.charCodeAt() * -1; //--> to return in descending alphabetical order
-      }
-    })
-
-    res.json(baz);
-
-  })
 
 // ALL ROUTES
 
 // SORT ITEMS BY DATE CREATED
-router.route('/sortItemsByDateAsc')
+router.route('/sortByCreationDateAsc')
   .get(function(req, res){
-    var sortedByISO = _.sortBy(Data, 'createdAt');
-    res.json(sortedByISO);
+    var itemsSortedByCreationDateAsc = _.sortBy(Data, 'createdAt');
+    res.json(itemsSortedByCreationDateAsc);
 
   })
 
-router.route('/sortItemsByDateDesc')
+router.route('/sortByCreationDateDesc')
   .get(function(req, res){
     // var datesOnly = _.map(Data, function(value, index, list){
     //   return value.createdAt;
@@ -165,3 +140,30 @@ app.use('/', function(req, res){
 
 app.listen(port);
 console.log('it\'s showtime!');
+
+
+// TEST ROUTE
+// router.route('/test')
+//   .get(function(req, res){
+//     var foo = [{name: 'moe', age: 10}, {name: 'larry', age: 50}, {name: 'curly', age: 6}, {name: 'zed', age: 1}];
+//     // var baz = _.sortBy(foo, 'age');
+//
+//     //  works the same as:
+//
+//     // var baz = _.sortBy(foo, function(prop){
+//     //   if (prop.age){
+//     //     return prop.age;
+//     //     // return prop.age * -1 //--> to return in descending order for numbers
+//     //   }
+//     // })
+//
+//     var baz = _.sortBy(foo, function(prop){
+//       if (prop.name){
+//         return prop.name;
+//         // return prop.name.charCodeAt() * -1; //--> to return in descending alphabetical order
+//       }
+//     })
+//
+//     res.json(baz);
+//
+//   })
