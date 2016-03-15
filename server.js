@@ -3,6 +3,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var path = require('path');
 var Data = require('./dummyData/sampleData.js').data;
 var _ = require('underscore');
 
@@ -118,12 +119,49 @@ router.route('/item/:id')
   })
 
 
+// FIND ITEMS WITHIN 50 MILES OF CURRENT LOCATION
+// SOURCES for Haversine Formula:
+  // https://rosettacode.org/wiki/Haversine_formula#JavaScript
+function haversine() {
+       var radians = Array.prototype.map.call(arguments, function(deg) { return deg/180.0 * Math.PI; });
+       var lat1 = radians[0], lon1 = radians[1], lat2 = radians[2], lon2 = radians[3];
+      //  var R = 6372.8; // km
+      var R = 3959;
+       var dLat = lat2 - lat1;
+       var dLon = lon2 - lon1;
+       var a = Math.sin(dLat / 2) * Math.sin(dLat /2) + Math.sin(dLon / 2) * Math.sin(dLon /2) * Math.cos(lat1) * Math.cos(lat2);
+       var c = 2 * Math.asin(Math.sqrt(a));
+       return R * c;
+}
+
+router.route('/items/:lat/:lon')
+  .get(function(req, res) {
+    var within50miles = _.filter(Data, function(value, index, list){
+      var distanceBetweenCurrentAndInput = haversine(req.params.lat, req.params.lon, value.loc[0], value.loc[1]);
+
+      if (distanceBetweenCurrentAndInput <= 50){
+        console.log('we have an item within 50 miles!!!');
+        return value;
+
+      }
+    })
+    res.json(within50miles);
+  });
+
+
+
 app.use('/api', router);
+app.use('/', function(req, res){
+  res.sendFile(path.join(__dirname + '/index.html'));
+})
 
   // lsof -i TCP:8080
   // kill 27165 <-- # is PID number
 
-// var nums = [2,1,3,10]
-// var sortedNums = _.sortBy(nums, function(num){ return Math.sin(num);})
+  // TODO:
+    // organize routes into its own folder
+    // test if sorted by iso date asc and desc is working by rearranging the sample data
+    // set up index html instructions page
+
 app.listen(port);
 console.log('it\'s showtime!');
