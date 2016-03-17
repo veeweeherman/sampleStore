@@ -1,6 +1,6 @@
 # sampleStore
 
-# Close5 Code Challenge
+# Employee Application/Code Challenge Directions
 ​
 In this coding challenge, I'm requesting that you create and API server preferably using express 4, but you can also use other http server frameworks (or none at all). If you do please comment in the code explaining why you did this.
 ​

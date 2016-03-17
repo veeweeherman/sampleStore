@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel=stylesheet type"text/css" href='styles.css'>
+
+
+    </script>
+    <title></title>
+  </head>
+  <body>
+    <h3>Directions on how to use our API:</h3>
+    <p>
+      Explore our API to get more information on certain products in our inventory. You can search for items based on distance or see all of our items listed by price. See the (sample) docs below for specific routes. Thanks!
+    </p>
+    <table>
+      <tr>
+        <th>Route</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>api/sortByCreationDateAsc</td>
+        <td>Returns an array of all items, sorted by their creation date, in ascending order (oldest items to newest items)</td>
+        <td>[{createdAt: "2015-03-26T23:00:18.800Z"},{createdAt: "2015-05-26T23:00:18.800Z"}]</td>
+      </tr>
+      <tr>
+        <td>api/sortByCreationDateDesc</td>
+        <td>Returns an array of all items, sorted by their creation date, in descending order (newest items to oldest items)</td>
+        <td>[{createdAt: "2015-05-26T23:00:18.800Z"},{createdAt: "2015-03-26T23:00:18.800Z"}]</td>
+      </tr>
+      <tr>
+        <td>api/price/Asc</td>
+        <td>Returns an array of all items, sorted by their price, in ascending order (cheapest item to most expensive item), "-1" means the item has not been priced and will be listed first</td>
+        <td>[{price: -1}, {price: 10}, {price: 35}]</td>
+      </tr>
+      <tr>
+        <td>api/price/Desc</td>
+        <td>Returns an array of all items, sorted by their price, in descending order (most expensive item to cheapest item), "-1" means the item has not been priced and will be listed last</td>
+        <td>[{price: 35}, {price: 10}, {price: -1}]</td>
+      </tr>
+
+      <tr>
+        <td>api/items/:userId</td>
+        <td>Returns an array of all items that are listed by a particular user based on userId</td>
+        <td>'/items/:123' returns [x,y,z] where x, y, and z are all the items listed by user 123</td>
+      </tr>
+      <tr>
+        <td>api/item/:id</td>
+        <td>Returns the item with the matching id</td>
+        <td>'/item/:789' returns {id: 789, description: "houseware"}</td>
+      </tr>
+      <tr>
+        <td>api/items/:lat/:lon/:distance</td>
+        <td>Returns an array of all items that are within a certain distance of the input location via latitude and longitude coordinates. The distance is measured in miles by default.</td>
+        <td>'/items/a/b/c' returns [item1,item2,item3], where item1, item2, and item3 are all items within c miles of the location coordinates a and b</td>
+      </tr>
+    </table>
+  </body>
+</html>

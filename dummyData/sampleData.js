@@ -1,3 +1,4 @@
+// Dates are already given in ISODate format
 var ISODate = function(string){
   return string;
 }
