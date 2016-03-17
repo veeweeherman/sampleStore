@@ -121,6 +121,7 @@ router.route('/items/:lat/:lon/:distance')
   .get(function(req, res) {
     // Because the sample data is only 10 objects clustered in one area, most input coordinates will return nothing if searching within 50 miles, so I've added a third parameter of distance that the user can input incase s/he wants to search for things within different distances
     // if you want to search for distance in kilometers, switch out the var R comment in the Haversine function above
+    // In case you need an example location to play around with, the Close5 office coordinates are: 37.7899775,-122.3970606
 
     // The following converts all parameters to numbers because when taking from the route URL each param is a string
     req.params.lat = Number(req.params.lat);
