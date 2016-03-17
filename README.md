@@ -6,7 +6,7 @@ To explore, clone the repo
 npm install
 ```
 
-and run server with 
+and run server with
 
 ```
 node app.js
@@ -18,7 +18,7 @@ node app.js
 ​
 In this coding challenge, I'm requesting that you create and API server preferably using express 4, but you can also use other http server frameworks (or none at all). If you do please comment in the code explaining why you did this.
 ​
-Below you will find a large JSON array of objects. These objects are small representations of items that people have listed for sale on Close5. With your API server, I would like you to use this static array as your database and created 1 or more http routes that return this data as JSON in various different ways. They include:
+Below you will find a large JSON array of objects. These objects are small representations of items that people have listed for sale on (company). With your API server, I would like you to use this static array as your database and created 1 or more http routes that return this data as JSON in various different ways. They include:
 ​
 * The entire list sorted by creation date (Ascending and Descending)
 * The entire listed sorted by the item’s price (Ascending and Descending)
@@ -28,7 +28,7 @@ Below you will find a large JSON array of objects. These objects are small repre
 ​
 The file(s) should be bundled up into one node project so that I can just run `node app.js`. I should then be able to hit localhost:8080 which will give me some kind of guide as to how to navigate your API.
 ​
-Feel free to ask any questions or for clarity on the challenge. You can email me the zip file or send me a github link to dylan@close5.com
+Feel free to ask any questions or for clarity on the challenge. You can email me the zip file or send me a github link to dylan@(company).com
 ​
 Good luck!
 ​
